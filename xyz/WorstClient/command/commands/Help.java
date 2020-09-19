@@ -19,15 +19,15 @@ extends Command {
     public String execute(String[] args) {
     	String List="";
     	try {
-			List=WebUtils.get("http://alxb.com.cn/Worst/read.php");
+			List=WebUtils.get("");
 		} catch (IOException e) {
-			// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+			// TODO ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Éµï¿½ catch ï¿½ï¿½
 			e.printStackTrace();
 		}
     	
         if (args.length == 0) {
             Helper.sendMessageWithoutPrefix("\u00a77\u00a7m\u00a7l----------------------------------");
-            Helper.sendMessageWithoutPrefix("                    \u00a7b\u00a7lWorst Client");
+            Helper.sendMessageWithoutPrefix("                    \u00a7b\u00a7lChaoJi Client");
             Helper.sendMessageWithoutPrefix("\u00a7b.help >\u00a77 list commands");
             Helper.sendMessageWithoutPrefix("\u00a7b.bind >\u00a77 bind a module to a key");
             Helper.sendMessageWithoutPrefix("\u00a7b.t >\u00a77 toggle a module on/off");

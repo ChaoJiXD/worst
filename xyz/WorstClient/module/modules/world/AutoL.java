@@ -50,9 +50,9 @@ private void onChat(EventChat e)
 {
 
       
-  if (e.getMessage().contains(Killaura.curTarget.getName()+"��"))
+  if (e.getMessage().contains(Killaura.curTarget.getName()))
   {
-    Minecraft.thePlayer.sendChatMessage("[Worst]"+Killaura.curTarget.getName() + " Why not buy Worst Client at chaoji.maikama.cn" );
+    Minecraft.thePlayer.sendChatMessage("[ChaoJi]"+Killaura.curTarget.getName() + "[ChaoJi] Why not use chaoji client?" );
     if(this.autowdr.getValue().booleanValue()) {
         Minecraft.thePlayer.sendChatMessage("/wdr "+Killaura.curTarget.getName()+" ka fly speed nokb reach jesus");
     }

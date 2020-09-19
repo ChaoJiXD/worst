@@ -21,7 +21,7 @@ private void onChat(EventChat e)
   if (e.getMessage().contains("Winner"))
   {
     e.setCancelled(true);
-    Minecraft.thePlayer.sendChatMessage("GG Buy Worst at chaoji.maikama.cn" );
+    Minecraft.thePlayer.sendChatMessage("[ChaoJi]GG ChaoJi Client is the BEST FREE CLIENT" );
     }
 }
   }

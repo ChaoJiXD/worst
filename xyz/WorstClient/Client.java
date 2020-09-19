@@ -42,7 +42,7 @@ import xyz.WorstClient.utils.WebUtils;
 
 public class Client {
     public static String name = "ChaoJi";
-    public static String version = "build 1";
+    public static String version = "build 2";
     public String PassWord;
     public String UserName;
     public static boolean publicMode = false;

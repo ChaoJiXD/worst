@@ -116,7 +116,6 @@ implements Manager {
         this.modules.add(new LagbackCheck());
         this.modules.add(new MemoryFix());
         this.modules.add(new SpeedMine());
-        this.modules.add(new ModCheck());
         this.modules.add(new PacketMotior());
         this.modules.add(new NoRotate());
         this.modules.add(new Phase());

@@ -170,7 +170,7 @@ UnicodeFontRenderer KeyFont = Client.fontManager.googlesans17;
         font2.drawStringWithShadow("Ping: " + mc.getNetHandler().getPlayerInfo(Minecraft.thePlayer.getUniqueID()).getResponseTime() + "ms", 80.0F, (RenderUtil.height()-18), (new Color(255, 255, 255)).getRGB());
         String date = (new SimpleDateFormat("HH:mm:ss")).format(new Date());
     	  }
-    	  font2.drawStringWithShadow(Client.name+" "+Client.version+"-ChaoJiG", (float)res.getScaledWidth_double()-font2.getStringWidth("Worst  "+Client.version+"-SuperSkidder"), (RenderUtil.height()-16), (new Color(255, 255, 255)).getRGB());
+    	  font2.drawStringWithShadow(Client.name+" "+Client.version+"-By ChaoJi", (float)res.getScaledWidth_double()-font2.getStringWidth("Worst  "+Client.version+"-SuperSkidder"), (RenderUtil.height()-16), (new Color(255, 255, 255)).getRGB());
       } 
       
      

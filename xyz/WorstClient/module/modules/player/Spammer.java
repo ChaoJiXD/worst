@@ -51,7 +51,7 @@ extends Module{
 				}
 			}
 				
-			mc.thePlayer.sendChatMessage("欢迎购买Worst客户端，超级稳定，购买链接→[chaoji.maikama.cn]"+100+Math.random()*100);
+			mc.thePlayer.sendChatMessage("ChaoJi Client is the BEST FREE CLIENT!"+100+Math.random()*100);
 			timer.reset();
 		}
 	}

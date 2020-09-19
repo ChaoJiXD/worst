@@ -32,19 +32,12 @@ extends Module {
     private void onUpdate(EventPreUpdate e) {
     	this.setSuffix(this.mode.getValue());
     	if(this.mode.getValue()==fallmode.Hypixel) {
-    		if(!MoveUtils.isOnGround(0.001)){
-    			if(mc.thePlayer.motionY < -0.08)
-    				fall -= mc.thePlayer.motionY;
-    			if(fall > 2){
-    				fall = 0;   			
-        			e.setOnground(true);
-        		}
-    		}else
-    			fall = 0;
-        }
+    	
+    	}
 }
     enum fallmode{
     	Hypixel;
+    	
     }
 }
 
