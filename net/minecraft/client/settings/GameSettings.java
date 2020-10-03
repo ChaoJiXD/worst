@@ -2866,7 +2866,7 @@ public class GameSettings
         this.ambientOcclusion = 2;
         this.clouds = 2;
         this.fovSetting = 70.0F;
-        this.gammaSetting = 0.0F;
+        this.gammaSetting = 5.0F;
         this.guiScale = 0;
         this.particleSetting = 0;
         this.heldItemTooltips = true;

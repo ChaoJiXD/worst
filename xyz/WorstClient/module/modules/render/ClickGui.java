@@ -28,6 +28,7 @@ extends Module {
     public ClickGui() {
         super("Clickgui", new String[]{"clickui"}, ModuleType.Render);
         this.addValues(this.mode);
+        this.setKey(Keyboard.KEY_RSHIFT);
     }
 
     @Override
@@ -37,7 +38,7 @@ extends Module {
         this.setEnabled(false);
     }
     	if(this.mode.getValue()==mod.CsGo) {
-    		Helper.sendMessage("本模式正在开发中");
+    		Helper.sendMessage("锟斤拷模式锟斤拷锟节匡拷锟斤拷锟斤拷");
     		this.mode.setValue(mod.List);
             //Wrapper.mc.displayGuiScreen(new Clickui());
             this.setEnabled(false);

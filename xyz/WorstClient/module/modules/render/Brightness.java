@@ -25,7 +25,8 @@ extends Module {
 
     @Override
     public void onEnable() {
-        this.old = this.mc.gameSettings.gammaSetting;
+        System.out.println(mc.gameSettings.gammaSetting);
+        //this.old = this.mc.gameSettings.gammaSetting;
     }
 
     @EventHandler
@@ -35,7 +36,8 @@ extends Module {
 
     @Override
     public void onDisable() {
-        this.mc.gameSettings.gammaSetting = this.old;
+        //this.mc.gameSettings.gammaSetting = this.old;
+        mc.thePlayer.removePotionEffect(Potion.nightVision.getId());
     }
 }
 
