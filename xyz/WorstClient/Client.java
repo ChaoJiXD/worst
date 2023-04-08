@@ -41,8 +41,8 @@ import xyz.WorstClient.utils.WebUtils;
 
 
 public class Client {
-    public static String name = "ChaoJi";
-    public static String version = "build 2";
+    public static String name = "worst reborn";
+    public static String version = "firstver/2023";
     public String PassWord;
     public String UserName;
     public static boolean publicMode = false;

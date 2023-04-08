@@ -516,7 +516,7 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
         GL11.glColor4f((float)1.0f, (float)1.0f, (float)1.0f, (float)1.0f);
         Gui.drawRect(0, sr.getScaledHeight(), sr.getScaledWidth(), sr.getScaledHeight()-50, new Color(235,235,235,190).getRGB());
 
-        Client.fontManager.verdana20.drawString("ChaoJi Client By ChaoJi.", 5, 5, new Color(255, 255, 255).getRGB());
+        Minecraft.fontRendererObj.drawString("worst reborn by Sunrise-team.", 5, 5, new Color(255, 255, 255).getRGB());
         RenderUtil.drawIcon(sr.getScaledWidth()/10,sr.getScaledHeight()-44,size+2, size+2,new ResourceLocation("MainMenu/single.png"), isOverSingleplayer ? new Color(255,255,255,255).getRGB():new Color(230,230,230,255).getRGB());
         Client.fontManager.verdana20.drawString("Single", sr.getScaledWidth()/10,sr.getScaledHeight()-14,isOverSingleplayer ? new Color(255,255,255,255).getRGB():new Color(130,130,130,255).getRGB());
         RenderUtil.drawIcon(sr.getScaledWidth()/10+sr.getScaledWidth()/8, sr.getScaledHeight()-44, size+2, size+2, new ResourceLocation("MainMenu/multi.png"),isOverMultiplayer ?new Color(255,255,255,255).getRGB():new Color(230,230,230,255).getRGB());

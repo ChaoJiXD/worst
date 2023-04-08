@@ -1,4 +1,4 @@
-﻿package net.minecraft.client.main;
+package net.minecraft.client.main;
 
 import java.io.BufferedReader;
 import java.io.File;

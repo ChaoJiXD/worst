@@ -166,11 +166,11 @@ UnicodeFontRenderer KeyFont = Client.fontManager.googlesans17;
     	  if(mc.ingameGUI.getChatGUI().getChatOpen() == false) {
         String FPS = " FPS:" + Minecraft.debugFPS + "";
         int ychat = mc.ingameGUI.getChatGUI().getChatOpen() ? 24 : 10, n = ychat;
-        font2.drawStringWithShadow(FPS, 5.0F, (RenderUtil.height() - mc.fontRendererObj.FONT_HEIGHT - 8), (new Color(255, 255, 255)).getRGB());
-        font2.drawStringWithShadow("Ping: " + mc.getNetHandler().getPlayerInfo(Minecraft.thePlayer.getUniqueID()).getResponseTime() + "ms", 80.0F, (RenderUtil.height()-18), (new Color(255, 255, 255)).getRGB());
+        Minecraft.fontRendererObj.drawStringWithShadow(FPS, 5.0F, (RenderUtil.height() - mc.fontRendererObj.FONT_HEIGHT - 8), (new Color(255, 255, 255)).getRGB());
+        Minecraft.fontRendererObj.drawStringWithShadow("Ping: " + mc.getNetHandler().getPlayerInfo(Minecraft.thePlayer.getUniqueID()).getResponseTime() + "ms", 80.0F, (RenderUtil.height()-18), (new Color(255, 255, 255)).getRGB());
         String date = (new SimpleDateFormat("HH:mm:ss")).format(new Date());
     	  }
-    	  font2.drawStringWithShadow(Client.name+" "+Client.version+"-By ChaoJi", (float)res.getScaledWidth_double()-font2.getStringWidth("Worst  "+Client.version+"-SuperSkidder"), (RenderUtil.height()-16), (new Color(255, 255, 255)).getRGB());
+    	  Minecraft.fontRendererObj.drawStringWithShadow(Client.name+" "+Client.version, (float)res.getScaledWidth_double()-font2.getStringWidth("Worst  "+Client.version+"-SuperSkidder"), (RenderUtil.height()-16), (new Color(255, 255, 255)).getRGB());
       } 
       
      
@@ -491,7 +491,7 @@ UnicodeFontRenderer KeyFont = Client.fontManager.googlesans17;
           int n = ychat = this.mc.ingameGUI.getChatGUI().getChatOpen() ? 10 : -5;
           Gui.drawRect(sr.getScaledWidth()-80, sr.getScaledHeight() - 52- font.FONT_HEIGHT + y - ychat, sr.getScaledWidth()-5, sr.getScaledHeight()- font.FONT_HEIGHT + y - ychat-28, (new Color(0, 0, 0, ((Double)this.bg.getValue()).intValue())).getRGB());
           font.drawStringWithShadow(PType, sr.getScaledWidth()-80, sr.getScaledHeight() - 27- font.FONT_HEIGHT + y - ychat-26, (new Color(((Double)red.getValue()).intValue(), ((Double)green.getValue()).intValue(), ((Double)blue.getValue()).intValue())).getRGB());             
-          Client.fontManager.verdana16.drawStringWithShadow(Potion.getDurationString(effect), sr.getScaledWidth() -80, sr.getScaledHeight() - 24- font.FONT_HEIGHT + y - ychat-15, new Color(255,255,255).getRGB());
+          Client.fontManager.comfortaa14.drawStringWithShadow(Potion.getDurationString(effect), sr.getScaledWidth() -80, sr.getScaledHeight() - 24- font.FONT_HEIGHT + y - ychat-15, new Color(255,255,255).getRGB());
           y -= 25;    
           } 
       }
