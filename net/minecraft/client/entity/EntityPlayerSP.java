@@ -58,8 +58,9 @@ import xyz.WorstClient.api.events.misc.EventChat;
 import xyz.WorstClient.api.events.world.EventMove;
 import xyz.WorstClient.api.events.world.EventPostUpdate;
 import xyz.WorstClient.api.events.world.EventPreUpdate;
-import xyz.WorstClient.module.modules.movement.NoSlowDown;
+
 import xyz.WorstClient.module.modules.world.Phase;
+import xyz.WorstClient.module.modules.movement.NoSlowDown;
 
 public class EntityPlayerSP extends AbstractClientPlayer
 {
