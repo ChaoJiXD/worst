@@ -21,21 +21,20 @@ import optifine.CapeUtils;
 import optifine.Config;
 import optifine.PlayerConfigurations;
 import optifine.Reflector;
+import xyz.WorstClient.Client;
+import xyz.WorstClient.module.modules.render.Cape;
 
-public abstract class AbstractClientPlayer extends EntityPlayer
-{
+public abstract class AbstractClientPlayer extends EntityPlayer {
     private NetworkPlayerInfo playerInfo;
     private ResourceLocation locationOfCape = null;
     private String nameClear = null;
     private static final String __OBFID = "CL_00000935";
 
-    public AbstractClientPlayer(World worldIn, GameProfile playerProfile)
-    {
+    public AbstractClientPlayer(World worldIn, GameProfile playerProfile) {
         super(worldIn, playerProfile);
         this.nameClear = playerProfile.getName();
 
-        if (this.nameClear != null && !this.nameClear.isEmpty())
-        {
+        if (this.nameClear != null && !this.nameClear.isEmpty()) {
             this.nameClear = StringUtils.stripControlCodes(this.nameClear);
         }
 
@@ -46,8 +45,7 @@ public abstract class AbstractClientPlayer extends EntityPlayer
     /**
      * Returns true if the player is in spectator mode.
      */
-    public boolean isSpectator()
-    {
+    public boolean isSpectator() {
         NetworkPlayerInfo networkplayerinfo = Minecraft.getMinecraft().getNetHandler().getPlayerInfo(this.getGameProfile().getId());
         return networkplayerinfo != null && networkplayerinfo.getGameType() == WorldSettings.GameType.SPECTATOR;
     }
@@ -55,15 +53,12 @@ public abstract class AbstractClientPlayer extends EntityPlayer
     /**
      * Checks if this instance of AbstractClientPlayer has any associated player data.
      */
-    public boolean hasPlayerInfo()
-    {
+    public boolean hasPlayerInfo() {
         return this.getPlayerInfo() != null;
     }
 
-    protected NetworkPlayerInfo getPlayerInfo()
-    {
-        if (this.playerInfo == null)
-        {
+    protected NetworkPlayerInfo getPlayerInfo() {
+        if (this.playerInfo == null) {
             this.playerInfo = Minecraft.getMinecraft().getNetHandler().getPlayerInfo(this.getUniqueID());
         }
 
@@ -73,8 +68,7 @@ public abstract class AbstractClientPlayer extends EntityPlayer
     /**
      * Returns true if the player has an associated skin.
      */
-    public boolean hasSkin()
-    {
+    public boolean hasSkin() {
         NetworkPlayerInfo networkplayerinfo = this.getPlayerInfo();
         return networkplayerinfo != null && networkplayerinfo.hasLocationSkin();
     }
@@ -82,28 +76,22 @@ public abstract class AbstractClientPlayer extends EntityPlayer
     /**
      * Returns true if the player instance has an associated skin.
      */
-    public ResourceLocation getLocationSkin()
-    {
+    public ResourceLocation getLocationSkin() {
         NetworkPlayerInfo networkplayerinfo = this.getPlayerInfo();
         return networkplayerinfo == null ? DefaultPlayerSkin.getDefaultSkin(this.getUniqueID()) : networkplayerinfo.getLocationSkin();
     }
 
-    public ResourceLocation getLocationCape()
-    {
-        if (!Config.isShowCapes())
-        {
-            return null;
-        }
-        else if (this.locationOfCape != null)
-        {
-            return this.locationOfCape;
-        }
-        else
-        {
+    public ResourceLocation getLocationCape() {
+        if (Client.instance.getModuleManager().getModuleByClass(Cape.class).isEnabled()) {
+            return new ResourceLocation("Worst/cape.png");
+        } else {
             NetworkPlayerInfo networkplayerinfo = this.getPlayerInfo();
             return networkplayerinfo == null ? null : networkplayerinfo.getLocationCape();
         }
     }
+
+
+
 
     public static ThreadDownloadImageData getDownloadImageSkin(ResourceLocation resourceLocationIn, String username)
     {
