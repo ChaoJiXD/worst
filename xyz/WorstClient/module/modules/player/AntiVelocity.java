@@ -27,7 +27,7 @@ extends Module {
     private void onPacket(EventPacketRecieve e) {
         S12PacketEntityVelocity pkt = (S12PacketEntityVelocity)e.getPacket();
         if (e.getPacket() instanceof S12PacketEntityVelocity || e.getPacket() instanceof S27PacketExplosion) {
-            if (mode.getValue() == kbmode.hypixel && mc.thePlayer.onGround) {
+            if (mode.getValue() == kbmode.hypixel) {
                 pkt.motionX = 0;
                 pkt.motionZ = 0;
             } else if (mode.getValue() == kbmode.zero) {
