@@ -1,14 +1,10 @@
 
 package xyz.WorstClient.module.modules.world;
 import net.minecraft.client.Minecraft;
-import net.minecraft.potion.Potion;
-import xyz.WorstClient.Client;
 import xyz.WorstClient.api.EventHandler;
 import xyz.WorstClient.api.events.misc.EventChat;
-import xyz.WorstClient.api.value.Option;
 import xyz.WorstClient.module.Module;
 import xyz.WorstClient.module.ModuleType;
-import xyz.WorstClient.module.modules.movement.Speed;
 
 public class AutoGG
 extends Module {

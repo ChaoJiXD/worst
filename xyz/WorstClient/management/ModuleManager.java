@@ -67,7 +67,6 @@ implements Manager {
         this.modules.add(new Sprint());
         this.modules.add(new Teleport());
         this.modules.add(new Step());
-        this.modules.add(new LegitSpeed());
         //player
         this.modules.add(new AntiFall());
         this.modules.add(new AntiVelocity());

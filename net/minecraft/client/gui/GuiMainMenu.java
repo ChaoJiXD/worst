@@ -30,6 +30,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.demo.DemoWorldServer;
 import net.minecraft.world.storage.ISaveFormat;
 import net.minecraft.world.storage.WorldInfo;
+import viamcp.gui.GuiProtocolSelector;
 import xyz.WorstClient.Client;
 import xyz.WorstClient.jello.main.particles.ParticleEngine;
 import xyz.WorstClient.ui.login.GuiAltManager;
@@ -256,6 +257,7 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
      */
     private void addSingleplayerMultiplayerButtons(int p_73969_1_, int p_73969_2_)
     {
+        this.buttonList.add(new GuiButton(69, 5, 5, 90, 20, "Version"));
         this.buttonList.add(new GuiButton(1, this.width / 2 - 100, p_73969_1_, I18n.format("menu.singleplayer", new Object[0])));
         this.buttonList.add(new GuiButton(2, this.width / 2 - 100, p_73969_1_ + p_73969_2_ * 1, I18n.format("menu.multiplayer", new Object[0])));
         this.buttonList.add(this.realmsButton = new GuiButton(14, this.width / 2 - 100, p_73969_1_ + p_73969_2_ * 2, "Alt Login"));
@@ -282,6 +284,10 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
      */
     protected void actionPerformed(GuiButton button) throws IOException
     {
+        if (button.id == 69)
+        {
+            this.mc.displayGuiScreen(new GuiProtocolSelector(this));
+        }
 
         if (button.id == 11)
         {

@@ -14,6 +14,7 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.world.EnumDifficulty;
+import viamcp.gui.GuiProtocolSelector;
 
 public class GuiOptions extends GuiScreen implements GuiYesNoCallback
 {
@@ -90,6 +91,7 @@ public class GuiOptions extends GuiScreen implements GuiYesNoCallback
                 }
             }
         });
+        this.buttonList.add(new GuiButton(69, 5, 5, 90, 20, "Version"));
         this.buttonList.add(new GuiButton(106, this.width / 2 - 155, this.height / 6 + 72 - 6, 150, 20, I18n.format("options.sounds", new Object[0])));
         this.buttonList.add(new GuiButton(107, this.width / 2 + 5, this.height / 6 + 72 - 6, 150, 20, I18n.format("options.stream", new Object[0])));
         this.buttonList.add(new GuiButton(101, this.width / 2 - 155, this.height / 6 + 96 - 6, 150, 20, I18n.format("options.video", new Object[0])));
@@ -135,6 +137,10 @@ public class GuiOptions extends GuiScreen implements GuiYesNoCallback
                 GameSettings.Options gamesettings$options = ((GuiOptionButton)button).returnEnumOptions();
                 this.game_settings_1.setOptionValue(gamesettings$options, 1);
                 button.displayString = this.game_settings_1.getKeyBinding(GameSettings.Options.getEnumOptions(button.id));
+            }
+            if (button.id == 69)
+            {
+                this.mc.displayGuiScreen(new GuiProtocolSelector(this));
             }
 
             if (button.id == 108)

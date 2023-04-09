@@ -2,17 +2,15 @@
 package xyz.WorstClient.module.modules.player;
 
 import java.awt.Color;
-import net.minecraft.network.Packet;
+
 import net.minecraft.network.play.server.S12PacketEntityVelocity;
 import net.minecraft.network.play.server.S27PacketExplosion;
 import xyz.WorstClient.api.EventHandler;
 import xyz.WorstClient.api.events.world.EventPacketRecieve;
 import xyz.WorstClient.api.value.Mode;
 import xyz.WorstClient.api.value.Numbers;
-import xyz.WorstClient.api.value.Value;
 import xyz.WorstClient.module.Module;
 import xyz.WorstClient.module.ModuleType;
-import xyz.WorstClient.module.modules.movement.Speed;
 
 public class AntiVelocity
 extends Module {
