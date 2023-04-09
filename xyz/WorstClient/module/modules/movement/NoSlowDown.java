@@ -20,6 +20,7 @@ import xyz.WorstClient.api.events.world.EventPacketRecieve;
 import xyz.WorstClient.api.events.world.EventPostUpdate;
 import xyz.WorstClient.api.events.world.EventPreUpdate;
 import xyz.WorstClient.api.events.world.EventTarget;
+import xyz.WorstClient.api.value.Option;
 import xyz.WorstClient.module.Module;
 import xyz.WorstClient.module.ModuleType;
 import xyz.WorstClient.utils.Helper;
@@ -28,12 +29,14 @@ import xyz.WorstClient.utils.PlayerUtil;
 
 public class NoSlowDown
 extends Module {
+    private Option<Boolean> Cube = new Option<>("Cube","Cube",true);
     public NoSlowDown() {
         super("NoSlowDown", new String[]{"noslowdown"}, ModuleType.Movement);
+        this.addValues(this.Cube);
     }
     @EventTarget
     public void onPreEvent(EventPreUpdate e){
-        if(shouldBlock()){
+        if(shouldBlock() && !this.Cube.getValue().booleanValue()){
             Minecraft.thePlayer.sendQueue.addToSendQueue(new C09PacketHeldItemChange((Minecraft.thePlayer.inventory.currentItem + 1) % 9));
             Minecraft.thePlayer.sendQueue.addToSendQueue(new C09PacketHeldItemChange(Minecraft.thePlayer.inventory.currentItem));
         }
