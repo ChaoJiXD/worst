@@ -39,10 +39,15 @@ import xyz.WorstClient.utils.HWIDUtils;
 import xyz.WorstClient.utils.RenderUtils;
 import xyz.WorstClient.utils.WebUtils;
 
+import static net.minecraft.client.main.Main.discordRP;
+
 
 public class Client {
     public static String name = "worst reborn";
     public static String version = "firstver/2023";
+    public DiscordRP getDiscordRP() {
+        return discordRP;
+    }
     public String PassWord;
     public String UserName;
     public static boolean publicMode = false;
