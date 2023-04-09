@@ -27,13 +27,13 @@ import xyz.WorstClient.utils.MoveUtils;
 import xyz.WorstClient.utils.PlayerUtil;
 
 public class NoSlowDown
-        extends Module {
+extends Module {
     public NoSlowDown() {
         super("NoSlowDown", new String[]{"noslowdown"}, ModuleType.Movement);
     }
     @EventTarget
     public void onPreEvent(EventPreUpdate e){
-        if(doNoSlow()){
+        if(shouldBlock()){
             Minecraft.thePlayer.sendQueue.addToSendQueue(new C09PacketHeldItemChange((Minecraft.thePlayer.inventory.currentItem + 1) % 9));
             Minecraft.thePlayer.sendQueue.addToSendQueue(new C09PacketHeldItemChange(Minecraft.thePlayer.inventory.currentItem));
         }
@@ -47,7 +47,7 @@ public class NoSlowDown
 
     }
 
-    public boolean doNoSlow(){
+    public boolean shouldBlock(){
         return Minecraft.thePlayer.getHeldItem().getItem() instanceof ItemSword && Minecraft.thePlayer.moving();
     }
 }
