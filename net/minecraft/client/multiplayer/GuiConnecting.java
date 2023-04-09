@@ -18,6 +18,9 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import xyz.WorstClient.Client;
+
+import javax.swing.event.CaretListener;
 
 public class GuiConnecting extends GuiScreen
 {
@@ -66,6 +69,8 @@ public class GuiConnecting extends GuiScreen
                     GuiConnecting.this.networkManager.setNetHandler(new NetHandlerLoginClient(GuiConnecting.this.networkManager, GuiConnecting.this.mc, GuiConnecting.this.previousGuiScreen));
                     GuiConnecting.this.networkManager.sendPacket(new C00Handshake(47, ip, port, EnumConnectionState.LOGIN));
                     GuiConnecting.this.networkManager.sendPacket(new C00PacketLoginStart(GuiConnecting.this.mc.getSession().getProfile()));
+
+                    Client.instance.getDiscordRP().update("Playing on" + ip, "In Game");
                 }
                 catch (UnknownHostException unknownhostexception)
                 {
