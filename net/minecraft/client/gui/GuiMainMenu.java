@@ -33,7 +33,7 @@ import net.minecraft.world.storage.WorldInfo;
 import viamcp.gui.GuiProtocolSelector;
 import xyz.WorstClient.Client;
 import xyz.WorstClient.jello.main.particles.ParticleEngine;
-import xyz.WorstClient.ui.login.GuiAltManager;
+import xyz.WorstClient.ui.login.GuiMicrosoftLogin;
 import xyz.WorstClient.utils.RenderUtils;
 import xyz.WorstClient.utils.render.RenderUtil;
 
@@ -705,7 +705,7 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
             this.mc.displayGuiScreen(new GuiMultiplayer(this));
         }
         if (mouseButton == 0 && isOverAltManager) {
-            this.mc.displayGuiScreen(new GuiAltManager());
+            this.mc.displayGuiScreen(new GuiMicrosoftLogin(this));
         }
         if (mouseButton == 0 && isOverSettings) {
             this.mc.displayGuiScreen(new GuiOptions(this, this.mc.gameSettings));

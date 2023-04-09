@@ -17,8 +17,6 @@ import java.io.FileWriter;
 
 import net.minecraft.client.Minecraft;
 import xyz.WorstClient.Client;
-import xyz.WorstClient.ui.login.Alt;
-import xyz.WorstClient.ui.login.AltManager;
 
 import java.io.File;
 
@@ -58,30 +56,25 @@ public class FileManager
                         final String[] parts = s.split("    ");
                         final String[] account = parts[1].split(":");
                         if (account.length == 2) {
-                            Client.instance.getAltManager().setLastAlt(new Alt(account[0], account[1], parts[0]));
                         }
                         else {
                             String pw = account[1];
                             for (int i = 2; i < account.length; ++i) {
                                 pw = String.valueOf(pw) + ":" + account[i];
                             }
-                            Client.instance.getAltManager().setLastAlt(new Alt(account[0], pw, parts[0]));
                         }
                     }
                     else {
                         final String[] account2 = s.split(":");
                         if (account2.length == 1) {
-                            Client.instance.getAltManager().setLastAlt(new Alt(account2[0], ""));
                         }
                         else if (account2.length == 2) {
-                            Client.instance.getAltManager().setLastAlt(new Alt(account2[0], account2[1]));
                         }
                         else {
                             String pw2 = account2[1];
                             for (int j = 2; j < account2.length; ++j) {
                                 pw2 = String.valueOf(pw2) + ":" + account2[j];
                             }
-                            Client.instance.getAltManager().setLastAlt(new Alt(account2[0], pw2));
                         }
                     }
                 }
@@ -99,15 +92,6 @@ public class FileManager
     public static void saveLastAlt() {
         try {
             final PrintWriter printWriter = new PrintWriter(FileManager.LASTALT);
-            final Alt alt = Client.instance.getAltManager().getLastAlt();
-            if (alt != null) {
-                if (alt.getMask().equals("")) {
-                    printWriter.println(String.valueOf(alt.getUsername()) + ":" + alt.getPassword());
-                }
-                else {
-                    printWriter.println(String.valueOf(alt.getMask()) + "    " + alt.getUsername() + ":" + alt.getPassword());
-                }
-            }
             printWriter.close();
         }
         catch (FileNotFoundException e) {
@@ -133,28 +117,20 @@ public class FileManager
                         final String[] parts = s.split("    ");
                         final String[] account = parts[1].split(":");
                         if (account.length == 2) {
-                            Client.instance.getAltManager();
-                            AltManager.getAlts().add(new Alt(account[0], account[1], parts[0]));
                         }
                         else {
                             String pw = account[1];
                             for (int i = 2; i < account.length; ++i) {
                                 pw = String.valueOf(pw) + ":" + account[i];
                             }
-                            Client.instance.getAltManager();
-                            AltManager.getAlts().add(new Alt(account[0], pw, parts[0]));
                         }
                     }
                     else {
                         final String[] account2 = s.split(":");
                         if (account2.length == 1) {
-                            Client.instance.getAltManager();
-                            AltManager.getAlts().add(new Alt(account2[0], ""));
                         }
                         else if (account2.length == 2) {
                             try {
-                                Client.instance.getAltManager();
-                                AltManager.getAlts().add(new Alt(account2[0], account2[1]));
                             }
                             catch (Exception e) {
                                 e.printStackTrace();
@@ -165,8 +141,6 @@ public class FileManager
                             for (int j = 2; j < account2.length; ++j) {
                                 pw2 = String.valueOf(pw2) + ":" + account2[j];
                             }
-                            Client.instance.getAltManager();
-                            AltManager.getAlts().add(new Alt(account2[0], pw2));
                         }
                     }
                 }
@@ -180,15 +154,6 @@ public class FileManager
         try {
             System.out.println("skrt");
             final PrintWriter printWriter = new PrintWriter(FileManager.ALT);
-            Client.instance.getAltManager();
-            for (final Alt alt : AltManager.getAlts()) {
-                if (alt.getMask().equals("")) {
-                    printWriter.println(String.valueOf(alt.getUsername()) + ":" + alt.getPassword());
-                }
-                else {
-                    printWriter.println(String.valueOf(alt.getMask()) + "    " + alt.getUsername() + ":" + alt.getPassword());
-                }
-            }
             printWriter.close();
         }
         catch (FileNotFoundException e) {
