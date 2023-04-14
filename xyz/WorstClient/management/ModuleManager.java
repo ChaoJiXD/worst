@@ -86,6 +86,7 @@ implements Manager {
         this.modules.add(new Chams());
         this.modules.add(new BigGod());
         this.modules.add(new ChestESP());
+        this.modules.add(new Cape());
         this.modules.add(new ChestAura());
         this.modules.add(new DMGParticle());
         this.modules.add(new ClickGui());
