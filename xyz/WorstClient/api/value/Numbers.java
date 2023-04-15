@@ -22,6 +22,7 @@ extends Value<T> {
         this.integer = false;
     }
 
+
     public T getMinimum() {
         return this.min;
     }

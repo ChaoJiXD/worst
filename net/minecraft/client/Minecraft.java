@@ -170,6 +170,7 @@ import net.minecraft.world.chunk.storage.AnvilSaveConverter;
 import net.minecraft.world.storage.ISaveFormat;
 import net.minecraft.world.storage.ISaveHandler;
 import net.minecraft.world.storage.WorldInfo;
+import viamcp.utils.AttackOrder;
 import xyz.WorstClient.Client;
 import xyz.WorstClient.api.EventBus;
 import xyz.WorstClient.api.events.misc.EventKey;
@@ -1511,7 +1512,8 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     {
         if (this.leftClickCounter <= 0)
         {
-            this.thePlayer.swingItem();
+            AttackOrder.sendConditionalSwing(this.objectMouseOver);
+          //  this.thePlayer.swingItem();
 
             if (this.objectMouseOver == null)
             {
@@ -1527,7 +1529,8 @@ public class Minecraft implements IThreadListener, IPlayerUsage
                 switch (this.objectMouseOver.typeOfHit)
                 {
                     case ENTITY:
-                        this.playerController.attackEntity(this.thePlayer, this.objectMouseOver.entityHit);
+                        AttackOrder.sendFixedAttack(this.thePlayer, this.objectMouseOver.entityHit);
+                      //  this.playerController.attackEntity(this.thePlayer, this.objectMouseOver.entityHit);
                         break;
 
                     case BLOCK:
@@ -2327,6 +2330,8 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         networkmanager.sendPacket(new C00Handshake(47, socketaddress.toString(), 0, EnumConnectionState.LOGIN));
         networkmanager.sendPacket(new C00PacketLoginStart(this.getSession().getProfile()));
         this.myNetworkManager = networkmanager;
+
+        Client.instance.getDiscordRP().update("Playing Single[layer", "In Game");
     }
 
     /**

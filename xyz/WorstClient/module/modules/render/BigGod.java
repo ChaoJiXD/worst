@@ -47,7 +47,7 @@ extends Module {
 
     @EventHandler
     public void onpre(EventPreUpdate event) {
-    		this.setSuffix(this.mode.getValue());
+        this.setSuffix(this.mode.getValue());
     }
     @EventHandler
     public void onRender(EventRender3D event) {
@@ -97,14 +97,18 @@ extends Module {
                 RenderUtils.drawImage(new ResourceLocation("Worst/ganga.png"), (int)((int)xLeft + 7), (int)((int)yUp - 28), (int)27, (int)32);
             } else if (this.mode.getValue() == EmojiMode.Taijun) {
                 RenderUtils.drawImage(new ResourceLocation("Worst/taijun.png"), (int)((int)xLeft + 7), (int)((int)yUp - 28), (int)27, (int)32);
-            }else if(this.mode.getValue() == EmojiMode.All) {
-            	if(1+Math.random()*(10-1+1) == 1) {
-            		RenderUtils.drawImage(new ResourceLocation("Worst/yaoer.png"), (int)((int)xLeft + 9), (int)((int)yUp - 20), (int)20, (int)25);
-            	}else if(1+Math.random()*(10-1+1) == 2){
-            		RenderUtils.drawImage(new ResourceLocation("Worst/ganga.png"), (int)((int)xLeft + 7), (int)((int)yUp - 28), (int)27, (int)32);
-            	}else if(1+Math.random()*(10-1+1) == 3){
-            		RenderUtils.drawImage(new ResourceLocation("Worst/taijun.png"), (int)((int)xLeft + 7), (int)((int)yUp - 28), (int)27, (int)32);
-            	}
+            } else if (this.mode.getValue() == EmojiMode.AoneHax) {
+                RenderUtils.drawImage(new ResourceLocation("Worst/lms.png"), (int)((int)xLeft + 7), (int)((int)yUp - 28), (int)27, (int)32);
+            } else if(this.mode.getValue() == EmojiMode.All) {
+                if(1+Math.random()*(10-1+1) == 1) {
+                    RenderUtils.drawImage(new ResourceLocation("Worst/yaoer.png"), (int)((int)xLeft + 9), (int)((int)yUp - 20), (int)20, (int)25);
+                }else if(1+Math.random()*(10-1+1) == 2){
+                    RenderUtils.drawImage(new ResourceLocation("Worst/ganga.png"), (int)((int)xLeft + 7), (int)((int)yUp - 28), (int)27, (int)32);
+                }else if(1+Math.random()*(10-1+1) == 3){
+                    RenderUtils.drawImage(new ResourceLocation("Worst/taijun.png"), (int)((int)xLeft + 7), (int)((int)yUp - 28), (int)27, (int)32);
+                } else if (this.mode.getValue() == EmojiMode.AoneHax) {
+                    RenderUtils.drawImage(new ResourceLocation("Worst/lms.png"), (int)((int)xLeft + 7), (int)((int)yUp - 28), (int)27, (int)32);
+                }
             }
             GL11.glColor4f((float)1.0f, (float)1.0f, (float)1.0f, (float)1.0f);
             GL11.glNormal3f((float)1.0f, (float)1.0f, (float)1.0f);
@@ -113,9 +117,10 @@ extends Module {
     }
     
     enum EmojiMode{
-    	Yaoer,
-    	Taijun,
-    	Ganga,
-    	All
+        Yaoer,
+        Taijun,
+        Ganga,
+        AoneHax,
+        All
     }
 }

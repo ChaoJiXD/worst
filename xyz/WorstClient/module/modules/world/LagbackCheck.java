@@ -4,7 +4,6 @@ import net.minecraft.network.play.server.S08PacketPlayerPosLook;
 import xyz.WorstClient.Client;
 import xyz.WorstClient.api.EventHandler;
 import xyz.WorstClient.api.events.world.EventPacketRecieve;
-import xyz.WorstClient.api.events.world.EventPreUpdate;
 import xyz.WorstClient.api.value.Option;
 import xyz.WorstClient.management.ModuleManager;
 import xyz.WorstClient.module.Module;
@@ -14,7 +13,6 @@ import xyz.WorstClient.module.modules.movement.Longjump;
 import xyz.WorstClient.module.modules.movement.Scaffold;
 import xyz.WorstClient.module.modules.movement.Speed;
 import xyz.WorstClient.ui.Notification;
-import xyz.WorstClient.utils.Helper;
 
 public class LagbackCheck extends Module{
     private Option<Boolean> boostflight = new Option<Boolean>("BoostFly lagback", "BoostFly lagback", true);

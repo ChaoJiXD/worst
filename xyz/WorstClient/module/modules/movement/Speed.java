@@ -212,6 +212,7 @@ extends Module {
                 this.less = 0.0;
             }
             if (!BlockUtils.isInLiquid() && MoveUtils.isOnGround(0.01) && PlayerUtil.isMoving2()) {
+
                 this.collided = Minecraft.thePlayer.isCollidedHorizontally;
                 if (stage >= 0 || this.collided) {
                     stage = 0;
@@ -304,6 +305,63 @@ extends Module {
                 }
             }
            
+        }
+        if(mode.getValue() == SigmaSpeedMode.LatestHypixel){
+            if(mc.thePlayer.hurtTime > 0){
+            if (Minecraft.thePlayer.isCollidedHorizontally) {
+                this.collided = true;
+            }
+            if (this.collided) {
+                Timer.timerSpeed = 1.0f;
+                stage = -1;
+            }
+            if (this.stair > 0.0) {
+                this.stair -= 0.25;
+            }
+            this.less -= this.less > 1.0 ? 0.12 : 0.11;
+            if (this.less < 0.0) {
+                this.less = 0.0;
+            }
+            if (!BlockUtils.isInLiquid() && MoveUtils.isOnGround(0.01) && PlayerUtil.isMoving2()) {
+                this.collided = Minecraft.thePlayer.isCollidedHorizontally;
+                if (stage >= 0 || this.collided) {
+                    stage = 0;
+                    double motY = 0.4086666 + (double) MoveUtils.getJumpEffect() * 0.1;
+                    if (this.stair == 0.0) {
+                        Minecraft.thePlayer.jump();
+                        Minecraft.thePlayer.motionY = motY;
+                        EventMove.setY(Minecraft.thePlayer.motionY);
+                    }
+                    this.less += 1.0;
+                    this.lessSlow = this.less > 1.0 && !this.lessSlow;
+                    if (this.less > 1.12) {
+                        this.less = 1.12;
+                     }
+                 }
+                }
+
+            this.speed = this.getHypixelSpeed(stage) + 0.0331;
+            this.speed *= 0.91;
+            if (this.stair > 0.0) {
+                this.speed *= 0.66 - (double)MoveUtils.getSpeedEffect() * 0.1;
+            }
+            if (stage < 0) {
+                this.speed = MoveUtils.defaultSpeed();
+            }
+            if (this.lessSlow) {
+                this.speed *= 0.96;
+            }
+            if (BlockUtils.isInLiquid()) {
+                this.speed = 0.12;
+            }
+            if (Minecraft.thePlayer.moveForward != 0.0f || Minecraft.thePlayer.moveStrafing != 0.0f) {
+                this.setMotion(e2, this.speed);
+                ++stage;
+                }
+
+            }else if(mc.thePlayer.hurtTime == 0 && !BlockUtils.isInLiquid() && MoveUtils.isOnGround(0.01) && PlayerUtil.isMoving2()) {Minecraft.thePlayer.jump();
+                Minecraft.thePlayer.motionY = 0.42;
+                EventMove.setY(0.42);}
         }
         if (mode.getValue() == SigmaSpeedMode.CnHypixel) {
             if (Minecraft.thePlayer.isInWater() && PlayerUtil.isMoving2()) {
@@ -528,6 +586,7 @@ extends Module {
     }
 
     static enum SigmaSpeedMode {
+        LatestHypixel,
         Hypixel,
         CnHypixel,
         WatchDog;

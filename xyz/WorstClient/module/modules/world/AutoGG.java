@@ -1,14 +1,10 @@
 
 package xyz.WorstClient.module.modules.world;
 import net.minecraft.client.Minecraft;
-import net.minecraft.potion.Potion;
-import xyz.WorstClient.Client;
 import xyz.WorstClient.api.EventHandler;
 import xyz.WorstClient.api.events.misc.EventChat;
-import xyz.WorstClient.api.value.Option;
 import xyz.WorstClient.module.Module;
 import xyz.WorstClient.module.ModuleType;
-import xyz.WorstClient.module.modules.movement.Speed;
 
 public class AutoGG
 extends Module {
@@ -21,7 +17,7 @@ private void onChat(EventChat e)
   if (e.getMessage().contains("Winner"))
   {
     e.setCancelled(true);
-    Minecraft.thePlayer.sendChatMessage("[ChaoJi]GG ChaoJi Client is the BEST FREE CLIENT" );
+    Minecraft.thePlayer.sendChatMessage("[Worst]GG 我叫AoneHax李铭舒正在给你妈洗B呢 B站关注AoneHax" );
     }
 }
   }

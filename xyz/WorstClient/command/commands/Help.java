@@ -21,7 +21,7 @@ extends Command {
     	try {
 			List=WebUtils.get("");
 		} catch (IOException e) {
-			// TODO �Զ����ɵ� catch ��
+			// TODO ???????? catch ??
 			e.printStackTrace();
 		}
     	

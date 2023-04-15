@@ -6,9 +6,7 @@ package xyz.WorstClient.module.modules.combat;
 
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 import xyz.WorstClient.Client;
 import xyz.WorstClient.api.EventHandler;
@@ -22,25 +20,18 @@ import xyz.WorstClient.management.ModuleManager;
 import xyz.WorstClient.module.Module;
 import xyz.WorstClient.module.ModuleType;
 import xyz.WorstClient.module.modules.movement.BoostFly;
-import xyz.WorstClient.module.modules.movement.Scaffold;
 import xyz.WorstClient.module.modules.movement.Speed;
 import xyz.WorstClient.utils.Helper;
 import xyz.WorstClient.utils.TimerUtil;
 import xyz.WorstClient.utils.math.MathUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
-import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.network.NetHandlerPlayClient;
-import net.minecraft.client.settings.GameSettings.Options;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.client.C02PacketUseEntity;
 import net.minecraft.network.play.client.C03PacketPlayer;
-import net.minecraft.network.play.client.C03PacketPlayer.C04PacketPlayerPosition;
-import net.minecraft.network.play.server.S08PacketPlayerPosLook;
-import net.minecraft.util.ChatComponentText;
 
 public class Criticals
 extends Module {

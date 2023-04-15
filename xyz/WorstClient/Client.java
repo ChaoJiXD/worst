@@ -34,22 +34,25 @@ import xyz.WorstClient.module.modules.render.UI.TabUI;
 import xyz.WorstClient.ui.Notification;
 import xyz.WorstClient.ui.Notification.Type;
 import xyz.WorstClient.ui.fontRenderer.FontManager;
-import xyz.WorstClient.ui.login.AltManager;
 import xyz.WorstClient.utils.HWIDUtils;
 import xyz.WorstClient.utils.RenderUtils;
 import xyz.WorstClient.utils.WebUtils;
+
+import static net.minecraft.client.main.Main.discordRP;
 
 
 public class Client {
     public static String name = "worst reborn";
     public static String version = "firstver/2023";
+    public DiscordRP getDiscordRP() {
+        return discordRP;
+    }
     public String PassWord;
     public String UserName;
     public static boolean publicMode = false;
     public static Client instance = new Client();
     public static ModuleManager modulemanager;
     private CommandManager commandmanager;
-    private AltManager altmanager;
     private FriendManager friendmanager;
 	public FontManager fontMgr;
 	public static FontManager fontManager;
@@ -67,9 +70,6 @@ public class Client {
         this.modulemanager.init();
         this.tabui = new TabUI();
         this.tabui.init();
-        this.altmanager = new AltManager();
-        AltManager.init();
-        AltManager.setupAlts();
         FileManager.init();
         
     }
@@ -89,9 +89,6 @@ public class Client {
         return this.commandmanager;
     }
 
-    public AltManager getAltManager() {
-        return this.altmanager;
-    }
 	public void drawNotifications() {
 		ScaledResolution res = new ScaledResolution(Minecraft.getMinecraft());
 		double startY = res.getScaledHeight() - 25;
