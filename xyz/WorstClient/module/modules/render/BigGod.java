@@ -99,6 +99,8 @@ extends Module {
                 RenderUtils.drawImage(new ResourceLocation("Worst/taijun.png"), (int)((int)xLeft + 7), (int)((int)yUp - 28), (int)27, (int)32);
             } else if (this.mode.getValue() == EmojiMode.AoneHax) {
                 RenderUtils.drawImage(new ResourceLocation("Worst/lms.png"), (int)((int)xLeft + 7), (int)((int)yUp - 28), (int)27, (int)32);
+            }else if (this.mode.getValue() == EmojiMode.YaoShuPing) {
+                RenderUtils.drawImage(new ResourceLocation("Worst/ysp.png"), (int)((int)xLeft + 7), (int)((int)yUp - 28), (int)27, (int)32);
             } else if(this.mode.getValue() == EmojiMode.All) {
                 if(1+Math.random()*(10-1+1) == 1) {
                     RenderUtils.drawImage(new ResourceLocation("Worst/yaoer.png"), (int)((int)xLeft + 9), (int)((int)yUp - 20), (int)20, (int)25);
@@ -121,6 +123,7 @@ extends Module {
         Taijun,
         Ganga,
         AoneHax,
+        YaoShuPing,
         All
     }
 }

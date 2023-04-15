@@ -18,7 +18,7 @@ public class DiscordRP {
         DiscordEventHandlers handlers = new DiscordEventHandlers.Builder().setReadyEventHandler(new ReadyCallback() {
             @Override
             public void apply(DiscordUser discordUser) {
-                System.out.println("welcome" + discordUser.username + "m" + discordUser.discriminator + "!");
+                System.out.println("welcome" + discordUser.username + "use the worst client" + discordUser.discriminator + "!");
                 update("Booting up", "");
             }
         }).build();
