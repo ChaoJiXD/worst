@@ -6,6 +6,7 @@ import net.minecraft.block.BlockLiquid;
 import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.network.play.client.C03PacketPlayer;
+import net.minecraft.potion.Potion;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
@@ -247,5 +248,16 @@ public class PlayerUtil {
     }
     public static boolean isMoving2() {
     	 return ((mc.thePlayer.moveForward != 0.0F || mc.thePlayer.moveStrafing != 0.0F));
+    }
+
+    public static double getBaseMoveSpeed() {
+        double baseSpeed = 0.2873;
+        Minecraft.getMinecraft();
+        if (Minecraft.getMinecraft().thePlayer.isPotionActive(Potion.moveSpeed)) {
+            Minecraft.getMinecraft();
+            int amplifier = Minecraft.getMinecraft().thePlayer.getActivePotionEffect(Potion.moveSpeed).getAmplifier();
+            baseSpeed *= 1.0 + 0.2 * (double)(amplifier + 1);
+        }
+        return baseSpeed;
     }
 }

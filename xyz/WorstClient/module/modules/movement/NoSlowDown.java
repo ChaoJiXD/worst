@@ -30,7 +30,7 @@ extends Module {
     public NoSlowDown() {
         super("NoSlowDown", new String[]{"noslowdown"}, ModuleType.Movement);
     }
-    @EventTarget
+    @EventHandler
     public void onPreEvent(EventPreUpdate e){
         if(doNoSlow()){
             Minecraft.thePlayer.sendQueue.addToSendQueue(new C09PacketHeldItemChange((Minecraft.thePlayer.inventory.currentItem + 1) % 9));
@@ -38,19 +38,36 @@ extends Module {
         }
 
     }
-    @EventTarget
+    @EventHandler
     public void packet(EventPacketRecieve event) {
-        if (event.getPacket() instanceof S30PacketWindowItems) {
-            if( (mc.thePlayer.isUsingItem() || mc.thePlayer.isBlocking()) && mc.thePlayer.getHeldItem() != null && mc.thePlayer.getHeldItem().getItem() instanceof ItemSword){
-                event.setCancelled(true);
-            }
+        if(doNoSlow()){
+            if (event.getPacket() instanceof S30PacketWindowItems) {
 
+                event.setCancelled(true);
+
+
+            }
         }
+
+
+    }
+    @EventHandler
+    private void onPost() {
+
+            if (mc.thePlayer == null) {
+                return;
+            }
+            if (mc.thePlayer.isEating()) {
+                return;
+            }
+            if (mc.thePlayer.moving() && (mc.thePlayer.isUsingItem() || mc.thePlayer.isBlocking())) {
+                //mc.getNetHandler().addToSendQueue(new C08PacketPlayerBlockPlacement(new BlockPos(-1, -1, -1), 255, mc.thePlayer.inventory.getCurrentItem(), 0, 0, 0));
+            }
 
     }
 
     public boolean doNoSlow(){
-        return Minecraft.thePlayer.getHeldItem().getItem() instanceof ItemSword && Minecraft.thePlayer.moving();
+        return Minecraft.thePlayer.getHeldItem().getItem() instanceof ItemSword && Minecraft.thePlayer.moving() ;
     }
 }
 

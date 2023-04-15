@@ -95,7 +95,7 @@ public class KeyBinding implements Comparable<KeyBinding>
     }
 
     /**
-     * Returns true on the initial key press. For continuous querying use {@link isKeyDown()}. Should be used in key
+     * Returns true on the initial key press. For continuous querying use {@link ()}. Should be used in key
      * events.
      */
     public boolean isPressed()
@@ -151,5 +151,10 @@ public class KeyBinding implements Comparable<KeyBinding>
 
 	public boolean getIsKeyPressed() {
         return this.pressed;
+    }
+
+    public void setPressed(boolean b) {
+        // TODO 自动生成的方法存根
+        pressed = b;
     }
 }
