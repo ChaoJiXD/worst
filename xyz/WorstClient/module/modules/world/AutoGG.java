@@ -17,7 +17,7 @@ private void onChat(EventChat e)
   if (e.getMessage().contains("Winner"))
   {
     e.setCancelled(true);
-    Minecraft.thePlayer.sendChatMessage("[ChaoJi]GG ChaoJi Client is the BEST FREE CLIENT" );
+    Minecraft.thePlayer.sendChatMessage("[Worst]GG 我叫AoneHax李铭舒正在给你妈洗B呢 B站关注AoneHax" );
     }
 }
   }

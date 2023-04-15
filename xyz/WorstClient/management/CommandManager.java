@@ -14,16 +14,7 @@ import xyz.WorstClient.api.EventBus;
 import xyz.WorstClient.api.EventHandler;
 import xyz.WorstClient.api.events.misc.EventChat;
 import xyz.WorstClient.command.Command;
-import xyz.WorstClient.command.commands.Bind;
-import xyz.WorstClient.command.commands.Cheats;
-import xyz.WorstClient.command.commands.Enchant;
-import xyz.WorstClient.command.commands.Help;
-import xyz.WorstClient.command.commands.LoadConfig;
-import xyz.WorstClient.command.commands.Title;
-import xyz.WorstClient.command.commands.Toggle;
-import xyz.WorstClient.command.commands.UploadConfig;
-import xyz.WorstClient.command.commands.VClip;
-import xyz.WorstClient.command.commands.safemode;
+import xyz.WorstClient.command.commands.*;
 import xyz.WorstClient.management.Manager;
 import xyz.WorstClient.utils.Helper;
 
@@ -44,6 +35,7 @@ implements Manager {
             }
         });
         this.commands.add(new Help());
+        this.commands.add(new HuJi());
         this.commands.add(new Toggle());
         this.commands.add(new Bind());
         this.commands.add(new VClip());
